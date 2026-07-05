@@ -1,0 +1,63 @@
+:root {
+    --gap: 20px;
+    --content-gap: 20px;
+    --nav-width: 1024px;
+    --main-width: 1080px;
+    --header-height: 44px;
+    --footer-height: 60px;
+    --radius: 5px;
+
+    /* Clean white light mode with cool neutrals */
+    --theme: #ffffff;
+    --entry: #f4f7fa;
+    --primary: #0f172a;
+    --secondary: #52606d;
+    --tertiary: #dbe4ec;
+    --gray: #7b8794;
+    --content: #1f2933;
+    --code-block-bg: #0f172a;
+    --code-bg: #eef3f8;
+    --border: #e2e8f0;
+
+    /* Cerulean accent */
+    --darkcolor: #1e6dde;
+    --lightcolor: #c9dcfb;
+
+    --font-heading: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-name: 'Jost', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --semibold: 500;
+    --homesize: 16px;
+    --textsize: 17px;
+    --h1size: 24px;
+    --entrysize: 15px;
+    --headersize: 15px;
+    --footersize: 13px;
+    --lineheight: 1.6;
+    --lineclamp: 8;
+    --marginleft: 24px;
+}
+
+.dark {
+    /* Near-black with a cool blue tint */
+    --theme: #0b1016;
+    --entry: #121a22;
+    --primary: #e6edf3;
+    --secondary: #8a97a5;
+    --tertiary: #1b2733;
+    --content: #c2ccd6;
+    --code-block-bg: #121a22;
+    --code-bg: #16202b;
+    --border: #1b2733;
+    --darkcolor: #5b93f2;
+    --lightcolor: #14243f;
+}
+
+.list {
+    background: var(--theme);
+}
+
+.dark.list {
+    background: var(--theme);
+}

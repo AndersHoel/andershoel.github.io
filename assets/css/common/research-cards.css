@@ -1,0 +1,192 @@
+/* =============================================
+   Homepage sections  (always visible, scroll)
+   ============================================= */
+
+.home-section {
+    max-width: var(--main-width);
+    margin: 0 auto;
+    padding: 28px var(--gap) 36px;
+    border-top: 1px solid var(--border);
+}
+
+.home-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+}
+
+/* =============================================
+   Research cards  —  3-column portrait grid
+   ============================================= */
+
+.research-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.research-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.12s ease;
+}
+
+.research-card:hover {
+    border-color: var(--darkcolor);
+}
+
+/* Cover image — full width, fixed-height crop */
+.research-card-cover {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--tertiary);
+}
+
+.research-card-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Body */
+.research-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 14px 16px 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+.research-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--primary);
+    margin: 0;
+}
+
+.research-card-authors {
+    font-size: 13px;
+    color: var(--secondary);
+    font-family: var(--font-body);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.research-card-description {
+    font-size: 14px;
+    color: var(--content);
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.research-card-description a {
+    color: var(--darkcolor);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.research-card-description a:hover {
+    color: var(--primary);
+}
+
+/* Link pills */
+.research-card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.research-card-link {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    color: var(--secondary);
+    background: var(--theme);
+    text-decoration: none;
+    transition: background 0.1s, color 0.1s, border-color 0.1s;
+    white-space: nowrap;
+}
+
+.research-card-link:hover {
+    background: var(--darkcolor);
+    border-color: var(--darkcolor);
+    color: #fff;
+}
+
+/* Primary action (e.g. DOI) gets green border */
+.research-card-link--primary {
+    border-color: var(--darkcolor);
+    color: var(--darkcolor);
+}
+
+/* =============================================
+   Outreach prose
+   ============================================= */
+
+.outreach-content {
+    font-size: var(--textsize);
+    line-height: var(--lineheight);
+    color: var(--content);
+}
+
+.outreach-content h4 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 24px 0 8px;
+}
+
+.outreach-content a {
+    color: var(--darkcolor);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.outreach-content a:hover {
+    color: var(--primary);
+}
+
+.outreach-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0;
+}
+
+/* Tablet: 2 columns */
+@media screen and (max-width: 720px) {
+    .research-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: single column */
+@media screen and (max-width: 480px) {
+    .research-cards {
+        grid-template-columns: 1fr;
+    }
+}

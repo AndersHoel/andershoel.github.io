@@ -1,0 +1,78 @@
+<div class="profile">
+{{- with site.Params.profileMode }}
+<div class="profile_inner">
+
+  {{- /* Image */}}
+  {{- if .imageUrl }}
+  {{- $imgSrc := .imageUrl | absURL }}
+  <div class="profile-img-wrap">
+    <img draggable="false" src="{{ $imgSrc }}"
+         alt="{{ .imageTitle | default "profile image" }}" />
+  </div>
+  {{- else }}
+  <div class="profile-img-placeholder"></div>
+  {{- end }}
+
+  {{- /* Bio */}}
+  <div class="profile-bio">
+    <div class="profile-name-row">
+      <h1>{{ .title | default site.Title | markdownify }}</h1>
+      <img src="{{ "logo.png" | absURL }}" alt="Site logo" class="profile-logo-mark">
+    </div>
+    <span>{{ .subtitle | markdownify }}</span>
+
+    <div class="social-icons">
+      {{- range site.Params.socialIcons }}
+      {{- if .hidden }}{{ continue }}{{ end }}
+      {{- $iconname := trim (.name | lower) " " }}
+      {{- if eq $iconname "email" }}
+      <a href="{{ trim .url " " | safeURL }}"
+         target="_blank"
+         rel="noopener noreferrer me"
+         title="Email"
+         class="social-icon-email">
+        {{ partial "svg.html" . }}
+        <span class="email-display">{{ site.Params.emailDisplay | default "you [at] example [dot] com" }}</span>
+      </a>
+      {{- else }}
+      <a href="{{ trim .url " " | safeURL }}"
+         target="_blank"
+         rel="noopener noreferrer me"
+         title="{{ (.title | default .name) | title }}">
+        {{ partial "svg.html" . }}
+      </a>
+      {{- end }}
+      {{- end }}
+    </div>
+
+  </div>{{- /* end .profile-bio */}}
+
+  {{- /* Sidebar */}}
+  {{- with site.Params.sidebar }}
+  <aside class="profile-sidebar">
+    <div class="sidebar-section">
+      <h4 class="sidebar-heading">Current Work</h4>
+      <ul class="sidebar-list">
+        {{- range .work }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- with .interests }}
+    <div class="sidebar-section">
+      <h4 class="sidebar-heading">Interests</h4>
+      <p class="sidebar-tags">{{ . }}</p>
+    </div>
+    {{- end }}
+    {{- with .using }}
+    <div class="sidebar-section">
+      <h4 class="sidebar-heading">Currently Using</h4>
+      <p class="sidebar-tags">{{ . }}</p>
+    </div>
+    {{- end }}
+  </aside>
+  {{- end }}
+
+</div>
+{{- end }}
+</div>

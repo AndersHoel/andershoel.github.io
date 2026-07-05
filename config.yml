@@ -1,0 +1,112 @@
+baseURL: "/"
+title: Anders Hoel
+theme: PaperMod
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+pagination:
+  pagerSize: 20
+
+taxonomies: {}
+disableKinds: ["taxonomy", "term", "RSS"]
+
+params:
+  assets:
+    disableScrollBarStyle: true
+    favicon: "logo.png"
+    favicon16x16: "logo.png"
+    favicon32x32: "logo.png"
+    apple_touch_icon: "logo.png"
+
+  description: "Personal website for Anders Hoel"
+  author: Anders Hoel
+  # googleAnalyticsID: "G-XXXXX"
+  DateFormat: "January 2006"
+  defaultTheme: light
+  hideFooter: false
+  disableThemeToggle: false
+  ShowShareButtons: false
+  ShowReadingTime: false
+  disableSpecial1stPost: true
+  disableAnchoredHeadings: true
+  ShowPostNavLinks: false
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowAllPagesInArchive: false
+  MainSections: ["projects"]
+  ShowToc: false
+  disableScrollToTop: true
+  TocOpen: true
+  ShowWordCount: false
+  UseHugoToc: true
+  comments: false
+  math: true
+
+  # ── The email shown next to the email icon (obfuscated to deter scrapers) ──
+  emailDisplay: "hoel [at] mit [dot] edu"
+
+  profileMode:
+    enabled: true
+    title: Anders Hoel
+    # Bio supports Markdown: [links](https://...) and <br> for line breaks.
+    subtitle: "I'm a PhD student in the [Laboratory for Information and Decision Systems (LIDS)](https://lids.mit.edu/) at MIT, advised by [Stephen Bates](https://stephenbates19.github.io/). I work on statistical methods for reliable machine learning — including uncertainty quantification, conformal prediction, and trustworthy decision-making with AI systems.
+<br><br>
+I'm originally from Norway, and before returning to research I spent several years as a technical consultant at PwC, working on transport and power-grid optimisation. Outside of work, I love running and anything Tolkien."
+    imageUrl: "profile.jpg"      # replace static/profile.jpg with your own photo (square works best)
+    imageWidth: 220
+    imageHeight: 220
+
+  # ── Links shown beneath your bio, in this order. ──
+  #  • To HIDE an icon you don't have yet, add `hidden: true` under it (or just
+  #    delete the whole entry). Remove that line to show it again.
+  #  • `name` must match an icon in the theme: CV, Email, Google Scholar,
+  #    GitHub, orcid, twitter, linkedin, bluesky, mastodon, etc.
+  #  The four below are hidden by default because they still have placeholder
+  #  links — fill in the real URL, then delete the `hidden: true` line.
+  socialIcons:
+    - name: CV
+      url: cv.pdf                 # add your CV as static/cv.pdf, then unhide
+      hidden: true
+    - name: Google Scholar
+      url: https://scholar.google.com/citations?user=YOUR_ID
+      hidden: true
+    - name: GitHub
+      url: https://github.com/YOUR-USERNAME
+      hidden: true
+    - name: orcid
+      url: https://orcid.org/0000-0000-0000-0000
+      hidden: true
+    - name: LinkedIn
+      url: https://www.linkedin.com/in/anders-hoel-29765124b
+    - name: Email
+      url: mailto:hoel@mit.edu
+
+  # ── The three boxes in the homepage sidebar. Edit freely or delete a block. ──
+  sidebar:
+    work:
+      - "Current project or focus #1"
+      - "Current project or focus #2"
+      - "Current project or focus #3"
+    interests: "conformal prediction · uncertainty quantification · reliable ML · distribution shift"
+    using: "Python · PyTorch · NumPy"
+
+  cover:
+    hiddenInList: false
+    hiddenInSingle: true
+
+  label:
+    text: "Anders Hoel"
+    icon: logo.png
+    iconHeight: 20
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+    highlight:
+        guessSyntax: true
+        style: autumn
+    tableOfContents:
+        endLevel: 2
+        ordered: false
+        startLevel: 2

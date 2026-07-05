@@ -1,0 +1,98 @@
+{{- define "main" }}
+
+{{- /* ── Theme toggle (floating, top-right) ──────── */}}
+{{- if not site.Params.disableThemeToggle }}
+<button id="theme-toggle" accesskey="t" title="Toggle theme (Alt + T)" aria-label="Toggle dark mode">
+    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+</button>
+{{- end }}
+
+{{- /* ── Bio / Hero ────────────────────────────────── */}}
+{{- if site.Params.profileMode.enabled }}
+{{- partial "index_profile.html" . }}
+{{- end }}
+
+{{- /* ── Projects ─────────────────────────────────── */}}
+{{- $papers := where site.RegularPages "Section" "projects" }}
+{{- $papers = where $papers "Params.hiddenInHomeList" "!=" "true" }}
+{{- if $papers }}
+<section class="home-section" id="projects">
+    <h2 class="home-section-title">Projects</h2>
+    <div class="research-cards">
+    {{- range $papers.ByDate.Reverse }}
+    {{- $paper := . }}
+    <article class="research-card">
+
+        {{- with .Params.cover.image }}
+        <div class="research-card-cover">
+            {{- $res := $paper.Resources.GetMatch . }}
+            {{- if $res }}
+            <img src="{{ $res.RelPermalink }}" alt="{{ $paper.Title }}" loading="lazy" />
+            {{- else }}
+            <img src="{{ . | absURL }}" alt="{{ $paper.Title }}" loading="lazy" />
+            {{- end }}
+        </div>
+        {{- end }}
+
+        <div class="research-card-body">
+            <h3 class="research-card-title">{{ $paper.Title }}</h3>
+
+            {{- with $paper.Params.author }}
+            <p class="research-card-authors">
+                {{- if reflect.IsSlice . }}{{ delimit . ", " }}{{ else }}{{ . }}{{ end }}
+            </p>
+            {{- end }}
+
+            {{- with $paper.Params.description }}
+            <div class="research-card-description">{{ . | markdownify }}</div>
+            {{- end }}
+
+            <div class="research-card-links">
+                {{- with $paper.Params.editPost }}
+                {{- if .URL }}
+                <a href="{{ .URL }}" target="_blank" rel="noopener"
+                   class="research-card-link research-card-link--primary">
+                    {{- .Text | default "View Paper" }} &nearr;
+                </a>
+                {{- end }}
+                {{- end }}
+                {{- with $paper.Params.arxiv }}
+                <a href="{{ . }}" target="_blank" rel="noopener" class="research-card-link">arXiv</a>
+                {{- end }}
+                {{- with $paper.Params.code }}
+                <a href="{{ . }}" target="_blank" rel="noopener" class="research-card-link">Code</a>
+                {{- end }}
+            </div>
+        </div>
+
+    </article>
+    {{- end }}
+    </div>
+</section>
+{{- end }}
+
+{{- /* ── Sidebar toggle ───────────────────────────── */}}
+<script>
+(function() {
+    const logo    = document.querySelector('.profile-logo-mark');
+    const sidebar = document.querySelector('.profile-sidebar');
+    if (!logo || !sidebar) return;
+    logo.addEventListener('click', function() {
+        sidebar.classList.toggle('sidebar-hidden');
+        logo.classList.toggle('logo-sidebar-off');
+    });
+})();
+</script>
+
+{{- end }}
