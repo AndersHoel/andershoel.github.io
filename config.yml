@@ -71,11 +71,9 @@ I'm originally from Norway, and before returning to research I spent several yea
       url: https://scholar.google.com/citations?user=YOUR_ID
       hidden: true
     - name: GitHub
-      url: https://github.com/YOUR-USERNAME
-      hidden: true
+      url: https://github.com/AndersHoel
     - name: orcid
-      url: https://orcid.org/0000-0000-0000-0000
-      hidden: true
+      url: https://orcid.org/0009-0000-9159-2731
     - name: LinkedIn
       url: https://www.linkedin.com/in/anders-hoel-29765124b
     - name: Email
@@ -84,10 +82,10 @@ I'm originally from Norway, and before returning to research I spent several yea
   # ── The three boxes in the homepage sidebar. Edit freely or delete a block. ──
   sidebar:
     work:
-      - "Current project or focus #1"
-      - "Current project or focus #2"
-      - "Current project or focus #3"
-    interests: "conformal prediction · uncertainty quantification · reliable ML · distribution shift"
+      - "Online Conformal Risk Control"
+      - "Anomaly Detection at the Resolution Limit of Conformal Prediction"
+      - "Diffusion Models on the Integers for Applications in the Life Sciences"
+    interests: "conformal prediction · uncertainty quantification · reliable ML · distribution shift · generative models"
     using: "Python · PyTorch · NumPy"
 
   cover:
